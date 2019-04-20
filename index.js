@@ -5,16 +5,14 @@ const jwt = require('jsonwebtoken')
 const Sequelize = require('sequelize')
 
 // read the DB password from environment variable
-const dbPassword = process.env.DB_PASS
-if (dbPassword == null || dbPassword === '') {
-  console.error('DB_PASS environment variable must be set!')
+const dbUrl = process.env.DATABASE_URL
+if (dbUrl == null || dbUrl === '') {
+  console.error('DATABASE_URL environment variable must be set!')
   // exit program with an error
   process.exit(1)
 }
 
-const sequelize = new Sequelize(
-  `postgres://postgres:${dbPassword}@localhost:5432/spotify`
-)
+const sequelize = new Sequelize(dbUrl)
 
 // read JWT secret from environment variable
 const jwtSecret = process.env.JWT_SECRET
