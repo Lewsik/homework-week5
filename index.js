@@ -110,7 +110,7 @@ async function main() {
       //   'album',
       //   'artist'
       // ] }]
-    });
+    })
 
     res.json(playlists)
   })
@@ -145,7 +145,7 @@ async function main() {
       userId: req.user.id
     })
 
-    res.status(201).json(playlist);
+    res.status(201).json(playlist)
   })
 
   app.delete('/playlists/:id', auth, async (req, res) => {
@@ -209,7 +209,7 @@ async function main() {
     })
 
     res.status(201).json(_user)
-  });
+  })
 
   // authentication
   app.post('/tokens', async (req, res) => {
@@ -231,11 +231,11 @@ async function main() {
         userId: user.id
       })
     })
-  });
+  })
 
   app.listen(port, () => {
     console.log(`Example app listening on port ${port}!`)
   })
 }
 
-main();
+main()
