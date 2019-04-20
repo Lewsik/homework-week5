@@ -54,12 +54,12 @@ const Song = sequelize.define('song', {
   timestamps: false
 })
 
-User.hasMany(Playlist);
-Playlist.hasMany(Song);
+User.hasMany(Playlist)
+Playlist.hasMany(Song)
 
 // create express app
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000
 
 async function main() {
   await User.sync()
